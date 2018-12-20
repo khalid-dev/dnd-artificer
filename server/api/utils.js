@@ -11,4 +11,4 @@ const getRandom = (data, numEntries) => {
     return randomEntries;
 };
 
-export default getRandom;
+module.exports = getRandom;
