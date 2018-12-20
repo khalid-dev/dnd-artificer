@@ -16,4 +16,4 @@ const mediumArmor = Papa.parse(mediumArmorCSV, options).data;
 const lightArmor = Papa.parse(lightArmorCSV, options).data;
 const shield = Papa.parse(shieldCSV, options).data;
 
-module.exports = { lightArmor, mediumArmor, heavyArmor, shield};
+module.exports = { lightArmor, mediumArmor, heavyArmor, shield };
