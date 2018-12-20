@@ -1,8 +1,8 @@
 const router = require('express').Router();
 
-router.use('/armors', require('./armor'));
-router.use('/weapons', require('./weapon'));
-router.use('/weak-magical-properties', require('./weak-magical-property'));
+router.use('/armors', require('./armors'));
+router.use('/weapons', require('./weapons'));
+router.use('/weak-magical-properties', require('./weak-magical-properties'));
 
 router.use((req, res, next) => {
     const err = new Error('API route not found!')
