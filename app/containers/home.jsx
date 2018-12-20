@@ -5,6 +5,12 @@ import TypeInputs from './type-inputs'
 import PropertyInputs from './property-inputs'
 
 export default class Home extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            results: []
+        }
+    }
     render() {
         return (
             <div className='home'>
@@ -12,7 +18,7 @@ export default class Home extends Component {
                 <TypeInputs />
                 <PropertyInputs />
                 <Combiner />
-                <Results />
+                <Results results={this.state.results}/>
             </div>
         )
     }
