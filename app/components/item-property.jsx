@@ -13,7 +13,7 @@ export default class ItemProperty extends Component {
 
     render() {
         return (
-            <div className='item'>
+            <div className="list-group-item">
                 This is an Item Property!
             </div>
         )

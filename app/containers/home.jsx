@@ -13,10 +13,12 @@ export default class Home extends Component {
     }
     render() {
         return (
-            <div className='home'>
+            <div className="container-fluid home">
                 <h1>Welcome to Artificer!</h1>
-                <TypeInputs />
-                <PropertyInputs />
+                <div className="row">
+                    <TypeInputs/>
+                    <PropertyInputs/>
+                </div>
                 <Combiner />
                 <Results results={this.state.results}/>
             </div>

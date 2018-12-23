@@ -11,23 +11,14 @@ export default class TypeInputs extends Component {
     }
     render() {
         return (
-            <div className='combiner'>
-                <h1> This is where the Item Types go! </h1>
+            <div className="col-6 list-group">
+                <h1> Item Types </h1>
                 {!this.state.typeIsSelected && 
-                    <div>
-                        <div className='armors'>
-                            ARMORS
-                            {itemTypes.armors.map(armorType => <ItemType key={armorType} type={armorType}/>)}
-                        </div>
-                        <div className='weapons'>
-                            WEAPONS
-                            {itemTypes.weapons.map(weaponType => <ItemType key={weaponType} type={weaponType}/>)}
-                        </div>
-                        <div className='trinkets'>
-                            TRINKETS
-                            {itemTypes.trinkets.map(trinketType => <ItemType key={trinketType} type={trinketType}/>)}
-                        </div>
-                    </div>}
+                    <React.Fragment>
+                        {itemTypes.armors.map(armorType => <ItemType key={armorType} type={armorType}/>)}
+                        {itemTypes.weapons.map(weaponType => <ItemType key={weaponType} type={weaponType}/>)}
+                        {itemTypes.trinkets.map(trinketType => <ItemType key={trinketType} type={trinketType}/>)}
+                    </React.Fragment>}
             </div>
         )
     }

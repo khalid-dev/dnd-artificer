@@ -11,7 +11,7 @@ export default class ItemType extends Component {
 
     render() {
         return (
-            <div className='item'>
+            <div className="list-group-item">
                 {this.props.type}
             </div>
         )

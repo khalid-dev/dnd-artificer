@@ -4,8 +4,8 @@ import ItemProperty from '../components/item-property'
 export default class PropertyInputs extends Component {
     render() {
         return (
-            <div className='combiner'>
-                <h1> This is where the Item Properties go! </h1>
+            <div className="col-6 list-group">
+                <h1> Item Properties </h1>
                 <div>
                     <ItemProperty />
                     <ItemProperty />
