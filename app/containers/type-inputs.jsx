@@ -23,6 +23,10 @@ export default class TypeInputs extends Component {
                             WEAPONS
                             {itemTypes.weapons.map(weaponType => <ItemType key={weaponType} type={weaponType}/>)}
                         </div>
+                        <div className='trinkets'>
+                            TRINKETS
+                            {itemTypes.trinkets.map(trinketType => <ItemType key={trinketType} type={trinketType}/>)}
+                        </div>
                     </div>}
             </div>
         )
