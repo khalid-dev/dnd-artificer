@@ -57,6 +57,7 @@ export default class Combiner extends Component {
                 type = elements[key]
         })
         const typeAPI = this.generateAPIStringRandom(type.API, this.state.value);
+
         const items = await axios.get(typeAPI);
         items.data.forEach(item => results.push(item));
 
@@ -78,9 +79,10 @@ export default class Combiner extends Component {
             });
         }
 
-        console.log(propertyAPIs)
-        console.log(results)
         this.props.setResults(results);
+        this.setState({
+            value: ''
+        })
     }
 
     render() {
