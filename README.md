@@ -6,9 +6,9 @@ A React/Express app designed to make generating magical items simple and visuall
    - [X] Code Prevention
    - [X] Error Message
 - [X] Add transition for elements being moved between containers
-- [ ] When combiner has met a minimum quota, have # items desired pop up
-- [ ] Implement submitting a request for # items with properties in combiner
-   - [ ] Generated items should be passed into Results Component
+- [X] When combiner has met a minimum quota, have # items desired pop up
+- [X] Implement submitting a request for # items with properties in combiner
+   - [X] Generated items should be passed into Results Component
    - [ ] Combiner should be cleared, with elements going back to their appropriate containers
    - [ ] Style it
 - [ ] Polish Components
