@@ -110,6 +110,7 @@ export default class Combiner extends Component {
                                 min="1"
                                 max="100"
                                 step="1"
+                                required={true}
                                 value={this.state.value}
                                 placeholder="Enter number"
                                 onChange={this.handleChange}
