@@ -17,6 +17,8 @@ export default class Home extends Component {
         }
         this.moveToCombinerFromTypes = this.moveToCombinerFromTypes.bind(this);
         this.moveToCombinerFromProperties = this.moveToCombinerFromProperties.bind(this);
+        this.removeFromCombinerToTypes = this.removeFromCombinerToTypes.bind(this);
+        this.removeFromCombinerToProperties = this.removeFromCombinerToProperties.bind(this);
     }
 
     moveToCombinerFromTypes(elementName) {
@@ -43,6 +45,30 @@ export default class Home extends Component {
         })
     }
 
+    removeFromCombinerToTypes(elementName) {
+        const newCombinerInputs = this.state.combinerInputs;
+        const elementInfo = newCombinerInputs[elementName];
+        delete newCombinerInputs[elementName];
+        const newTypeInputs = this.state.typeInputs;
+        newTypeInputs[elementName] = elementInfo;
+        this.setState({
+            typeInputs: newTypeInputs,
+            combinerInputs: newCombinerInputs
+        })
+    }
+
+    removeFromCombinerToProperties(elementName) {
+        const newCombinerInputs = this.state.combinerInputs;
+        const elementInfo = newCombinerInputs[elementName];
+        delete newCombinerInputs[elementName];
+        const newPropertyInputs = this.state.propertyInputs;
+        newPropertyInputs[elementName] = elementInfo;
+        this.setState({
+            propertyInputs: newPropertyInputs,
+            combinerInputs: newCombinerInputs
+        })
+    }
+
     render() {
         return (
             <div className="container-fluid home">
@@ -51,8 +77,8 @@ export default class Home extends Component {
                     <TypeInputs elements={this.state.typeInputs} moveToCombiner={this.moveToCombinerFromTypes}/>
                     <PropertyInputs elements={this.state.propertyInputs} moveToCombiner={this.moveToCombinerFromProperties}/>
                 </div>
-                <Combiner elements={this.state.combinerInputs}/>
-                <Results elements={this.state.results}/>
+                <Combiner elements={this.state.combinerInputs} removeToTypes={this.removeFromCombinerToTypes} removeToProperties={this.removeFromCombinerToProperties}/>
+                <Results elements={this.state.results} />
             </div>
         )
     }

@@ -10,10 +10,10 @@ export default class Combiner extends Component {
                 {Object.keys(this.props.elements).map(key => {
                     const element = this.props.elements[key];
                     if (element.content.includes('property')) {
-                        return <ItemProperty key={element.id} API={element.API} content={element.content}/>
+                        return <ItemProperty key={element.id} API={element.API} content={element.content} move={this.props.removeToProperties}/>
                     }
                     else {
-                        return <ItemType key={element.id} API={element.API} content={element.content}/>
+                        return <ItemType key={element.id} API={element.API} content={element.content} move={this.props.removeToTypes}/>
                     }
                 })}
             </div>

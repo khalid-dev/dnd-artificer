@@ -15,7 +15,7 @@ export default class ItemProperty extends Component {
 
     render() {
         return (
-            <div className="list-group-item" onClick={() => {this.props.moveToCombiner(this.props.content)}}>
+            <div className="list-group-item" onClick={() => {this.props.move(this.props.content)}}>
                 {this.props.content}
             </div>
         )

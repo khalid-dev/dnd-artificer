@@ -9,7 +9,7 @@ export default class PropertyInputs extends Component {
                 <React.Fragment>
                     {Object.keys(this.props.elements).map(type => {
                         const property = this.props.elements[type];
-                        return <ItemProperty key={property.id} API={property.API} content={property.content} moveToCombiner={this.props.moveToCombiner}/>
+                        return <ItemProperty key={property.id} API={property.API} content={property.content} move={this.props.moveToCombiner}/>
                     })}
                 </React.Fragment>
             </div>

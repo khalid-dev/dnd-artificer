@@ -16,7 +16,7 @@ export default class TypeInputs extends Component {
                     <React.Fragment>
                         {Object.keys(this.props.elements).map(type => {
                             const item = this.props.elements[type];
-                            return <ItemType key={item.id} API={item.API} content={item.content}/>
+                            return <ItemType key={item.id} API={item.API} content={item.content} move={this.props.moveToCombiner}/>
                         })}
                     </React.Fragment>}
             </div>

@@ -11,7 +11,7 @@ export default class ItemType extends Component {
 
     render() {
         return (
-            <div className="list-group-item">
+            <div className="list-group-item" onClick={() => {this.props.move(this.props.content)}}>
                 {this.props.content}
             </div>
         )
