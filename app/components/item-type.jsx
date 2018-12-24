@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { ListGroup } from 'react-bootstrap'
 
 export default class ItemType extends Component {
     generateAPIString() {
@@ -11,9 +12,9 @@ export default class ItemType extends Component {
 
     render() {
         return (
-            <div className="list-group-item" onClick={() => {this.props.move(this.props.content)}}>
+            <ListGroup.Item onClick={() => {this.props.move(this.props.content)}}>
                 {this.props.content}
-            </div>
+            </ListGroup.Item>
         )
     }
 }

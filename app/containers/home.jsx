@@ -5,6 +5,7 @@ import TypeInputs from './type-inputs'
 import PropertyInputs from './property-inputs'
 import itemTypes from '../constants/item-types'
 import itemProperties from '../constants/item-properties'
+import { Container, Row } from 'react-bootstrap'
 
 export default class Home extends Component {
     constructor(props) {
@@ -71,15 +72,15 @@ export default class Home extends Component {
 
     render() {
         return (
-            <div className="container-fluid home">
+            <Container className="home">
                 <h1>Welcome to Artificer!</h1>
-                <div className="row">
+                <Row>
                     <TypeInputs elements={this.state.typeInputs} moveToCombiner={this.moveToCombinerFromTypes}/>
+                    <Combiner elements={this.state.combinerInputs} removeToTypes={this.removeFromCombinerToTypes} removeToProperties={this.removeFromCombinerToProperties}/>
                     <PropertyInputs elements={this.state.propertyInputs} moveToCombiner={this.moveToCombinerFromProperties}/>
-                </div>
-                <Combiner elements={this.state.combinerInputs} removeToTypes={this.removeFromCombinerToTypes} removeToProperties={this.removeFromCombinerToProperties}/>
+                </Row>
                 <Results elements={this.state.results} />
-            </div>
+            </Container>
         )
     }
 }

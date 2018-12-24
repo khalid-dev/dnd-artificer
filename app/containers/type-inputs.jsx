@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import ItemType from '../components/item-type'
+import { Col, ListGroup } from 'react-bootstrap'
 
 export default class TypeInputs extends Component {
     constructor(props) {
@@ -8,18 +9,19 @@ export default class TypeInputs extends Component {
             typeIsSelected: false
         }
     }
+
     render() {
         return (
-            <div className="col-6 list-group">
+            <Col>
                 <h1> Item Types </h1>
                 {!this.state.typeIsSelected && 
-                    <React.Fragment>
+                    <ListGroup>
                         {Object.keys(this.props.elements).map(type => {
                             const item = this.props.elements[type];
                             return <ItemType key={item.id} API={item.API} content={item.content} move={this.props.moveToCombiner}/>
                         })}
-                    </React.Fragment>}
-            </div>
+                    </ListGroup>}
+            </Col>
         )
     }
 }
