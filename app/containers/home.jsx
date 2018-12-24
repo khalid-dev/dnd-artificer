@@ -27,6 +27,7 @@ export default class Home extends Component {
     }
 
     moveToCombinerFromTypes(elementName) {
+        //if/else and return true to limit item types to 1--not necc for other inputs
         if (!this.state.typeIsSelected) {
             const newTypeInputs = this.state.typeInputs;
             const elementInfo = newTypeInputs[elementName];
@@ -97,7 +98,7 @@ export default class Home extends Component {
                 {this.state.error && <DismissibleError message={this.state.error} resetError={this.resetError}/>}
                 <Row>
                     <TypeInputs elements={this.state.typeInputs} moveToCombiner={this.moveToCombinerFromTypes}/>
-                    <Combiner elements={this.state.combinerInputs} removeToTypes={this.removeFromCombinerToTypes} removeToProperties={this.removeFromCombinerToProperties}/>
+                    <Combiner elements={this.state.combinerInputs} removeToTypes={this.removeFromCombinerToTypes} removeToProperties={this.removeFromCombinerToProperties} typeIsSelected={this.state.typeIsSelected}/>
                     <PropertyInputs elements={this.state.propertyInputs} moveToCombiner={this.moveToCombinerFromProperties}/>
                 </Row>
                 <Results elements={this.state.results} />

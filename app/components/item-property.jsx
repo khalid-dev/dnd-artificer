@@ -22,7 +22,7 @@ export default class ItemProperty extends Component {
 
     render() {
         return (
-            <Fade appear={true} in={this.state.selected}>
+            <Fade appear={true} in={this.state.selected} duration="1000">
                 <ListGroup.Item onClick={() => {this.props.move(this.props.content)}}>
                     {this.props.content}
                 </ListGroup.Item>
