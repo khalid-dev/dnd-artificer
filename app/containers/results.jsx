@@ -6,7 +6,7 @@ export default class Results extends Component {
         return (
             <div className='results'>
                 <h1>Results:</h1>
-                {this.props.results.forEach(item => <Item />)}
+                {this.props.elements.forEach(item => <Item />)}
             </div>
         )
     }

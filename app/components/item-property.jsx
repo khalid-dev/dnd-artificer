@@ -1,20 +1,22 @@
 import React, { Component } from 'react'
-import itemTypes from '../constants/item-types'
 
 export default class ItemProperty extends Component {
+    //Write a test for this to ensure that it only works on armor, weapon, and trinket
     generateAPIStringRandom(type) {
-        if (itemTypes.armors.includes(type)) {
-            return `/api/weak-magical-properties/armor/random/`;
-        }
-        else if (itemTypes.weapons.includes(type)) {
-            return `/api/weak-magical-properties/weapon/random/`;
+        switch(type) {
+            case 'armor':
+                return `/api/${this.props.API}/armors/random/`;
+            case 'weapon':
+                return `/api/${this.props.API}/weapons/random`;
+            case 'trinket':
+                return `/api/${this.props.API}/trinkets/random`;
         }
     }
 
     render() {
         return (
-            <div className="list-group-item">
-                This is an Item Property!
+            <div className="list-group-item" onClick={() => {this.props.moveToCombiner(this.props.content)}}>
+                {this.props.content}
             </div>
         )
     }

@@ -6,10 +6,12 @@ export default class PropertyInputs extends Component {
         return (
             <div className="col-6 list-group">
                 <h1> Item Properties </h1>
-                <div>
-                    <ItemProperty />
-                    <ItemProperty />
-                </div>
+                <React.Fragment>
+                    {Object.keys(this.props.elements).map(type => {
+                        const property = this.props.elements[type];
+                        return <ItemProperty key={property.id} API={property.API} content={property.content} moveToCombiner={this.props.moveToCombiner}/>
+                    })}
+                </React.Fragment>
             </div>
         )
     }

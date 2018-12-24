@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import ItemType from '../components/item-type'
-import itemTypes from '../constants/item-types'
 
 export default class TypeInputs extends Component {
     constructor(props) {
@@ -15,9 +14,10 @@ export default class TypeInputs extends Component {
                 <h1> Item Types </h1>
                 {!this.state.typeIsSelected && 
                     <React.Fragment>
-                        {itemTypes.armors.map(armorType => <ItemType key={armorType} type={armorType}/>)}
-                        {itemTypes.weapons.map(weaponType => <ItemType key={weaponType} type={weaponType}/>)}
-                        {itemTypes.trinkets.map(trinketType => <ItemType key={trinketType} type={trinketType}/>)}
+                        {Object.keys(this.props.elements).map(type => {
+                            const item = this.props.elements[type];
+                            return <ItemType key={item.id} API={item.API} content={item.content}/>
+                        })}
                     </React.Fragment>}
             </div>
         )
