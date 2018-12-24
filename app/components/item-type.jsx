@@ -1,7 +1,13 @@
 import React, { Component } from 'react'
-import { ListGroup } from 'react-bootstrap'
+import { Fade, ListGroup } from 'react-bootstrap'
 
 export default class ItemType extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            selected: true
+        }
+    }
     generateAPIString() {
         return `/api/${this.props.API}/`;
     }
@@ -12,9 +18,14 @@ export default class ItemType extends Component {
 
     render() {
         return (
-            <ListGroup.Item onClick={() => {this.props.move(this.props.content)}}>
-                {this.props.content}
-            </ListGroup.Item>
+            <Fade appear={true} in={this.state.selected}>
+                <ListGroup.Item onClick={() => {
+                    if (this.props.move(this.props.content)) {
+                        this.setState({selected: !this.state.selected});
+                    }}}>
+                    {this.props.content}
+                </ListGroup.Item>
+            </Fade>
         )
     }
 }

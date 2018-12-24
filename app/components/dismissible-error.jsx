@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { Alert, Button } from 'react-bootstrap'
 
-export default class Error extends Component {
+export default class DismissibleError extends Component {
     constructor(props) {
         super(props);
     }

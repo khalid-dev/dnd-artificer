@@ -2,10 +2,10 @@
 A React/Express app designed to make generating magical items simple and visually intuitive.
 
 # TODO
-- [ ] Limit the itemTypes in combiner to 1
-   - [ ] Code Prevention
-   - [ ] Error Message
-- [ ] Add transition for elements being moved between containers
+- [X] Limit the itemTypes in combiner to 1
+   - [X] Code Prevention
+   - [X] Error Message
+- [X] Add transition for elements being moved between containers
 - [ ] When combiner has met a minimum quota, have # items desired pop up
 - [ ] Implement submitting a request for # items with properties in combiner
    - [ ] Generated items should be passed into Results Component

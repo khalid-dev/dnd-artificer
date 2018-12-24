@@ -1,7 +1,13 @@
 import React, { Component } from 'react'
-import { ListGroup } from 'react-bootstrap'
+import { Fade, ListGroup } from 'react-bootstrap'
 
 export default class ItemProperty extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            selected: true
+        }
+    }
     //Write a test for this to ensure that it only works on armor, weapon, and trinket
     generateAPIStringRandom(type) {
         switch(type) {
@@ -16,9 +22,11 @@ export default class ItemProperty extends Component {
 
     render() {
         return (
-            <ListGroup.Item onClick={() => {this.props.move(this.props.content)}}>
-                {this.props.content}
-            </ListGroup.Item>
+            <Fade appear={true} in={this.state.selected}>
+                <ListGroup.Item onClick={() => {this.props.move(this.props.content)}}>
+                    {this.props.content}
+                </ListGroup.Item>
+            </Fade>
         )
     }
 }

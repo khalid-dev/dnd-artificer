@@ -3,7 +3,7 @@ import Results from './results'
 import Combiner from './combiner'
 import TypeInputs from './type-inputs'
 import PropertyInputs from './property-inputs'
-import Error from '../components/error'
+import DismissibleError from '../components/dismissible-error'
 import itemTypes from '../constants/item-types'
 import itemProperties from '../constants/item-properties'
 import { Container, Row } from 'react-bootstrap'
@@ -38,6 +38,7 @@ export default class Home extends Component {
                 combinerInputs: newCombinerInputs,
                 typeIsSelected: !this.state.typeIsSelected
             })
+            return true
         }
         else {
             this.setState({
@@ -93,7 +94,7 @@ export default class Home extends Component {
         return (
             <Container className="home">
                 <h1>Welcome to Artificer!</h1>
-                {this.state.error && <Error message={this.state.error} resetError={this.resetError}/>}
+                {this.state.error && <DismissibleError message={this.state.error} resetError={this.resetError}/>}
                 <Row>
                     <TypeInputs elements={this.state.typeInputs} moveToCombiner={this.moveToCombinerFromTypes}/>
                     <Combiner elements={this.state.combinerInputs} removeToTypes={this.removeFromCombinerToTypes} removeToProperties={this.removeFromCombinerToProperties}/>
