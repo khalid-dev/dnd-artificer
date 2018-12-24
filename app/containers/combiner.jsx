@@ -42,6 +42,18 @@ export default class Combiner extends Component {
         }
     }
 
+    resetElements() {
+        const { elements, removeToProperties, removeToTypes } = this.props;
+        Object.keys(elements).forEach(key => {
+            if (key.includes('property')) {
+                removeToProperties(key);
+            }
+            else {
+                removeToTypes(key);
+            }
+        })
+    }
+
     async handleSubmit(evt) {
         evt.preventDefault();
         const results = [];
@@ -80,6 +92,7 @@ export default class Combiner extends Component {
         }
 
         this.props.setResults(results);
+        this.resetElements();
         this.setState({
             value: ''
         })
