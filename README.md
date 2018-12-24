@@ -9,8 +9,8 @@ A React/Express app designed to make generating magical items simple and visuall
 - [X] When combiner has met a minimum quota, have # items desired pop up
 - [X] Implement submitting a request for # items with properties in combiner
    - [X] Generated items should be passed into Results Component
-   - [ ] Combiner should be cleared, with elements going back to their appropriate containers
-   - [ ] Style it
+   - [X] Combiner should be cleared, with elements going back to their appropriate containers
+   - [X] Style it
 - [ ] Polish Components
 - [ ] Ensure App is usable with keyboard only
 - [ ] Test on SR--see if app makes sense if using a screen reader only
