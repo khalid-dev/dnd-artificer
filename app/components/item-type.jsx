@@ -8,13 +8,6 @@ export default class ItemType extends Component {
             selected: true
         }
     }
-    generateAPIString() {
-        return `/api/${this.props.API}/`;
-    }
-
-    generateAPIStringRandom() {
-        return `/api/${this.props.API}/random/`;
-    }
 
     render() {
         return (

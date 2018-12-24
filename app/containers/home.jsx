@@ -24,6 +24,7 @@ export default class Home extends Component {
         this.removeFromCombinerToTypes = this.removeFromCombinerToTypes.bind(this);
         this.removeFromCombinerToProperties = this.removeFromCombinerToProperties.bind(this);
         this.resetError = this.resetError.bind(this);
+        this.setResults = this.setResults.bind(this);
     }
 
     moveToCombinerFromTypes(elementName) {
@@ -91,6 +92,12 @@ export default class Home extends Component {
         })
     }
 
+    setResults(results) {
+        this.setState({
+            results
+        })
+    }
+
     render() {
         return (
             <Container className="home">
@@ -98,7 +105,7 @@ export default class Home extends Component {
                 {this.state.error && <DismissibleError message={this.state.error} resetError={this.resetError}/>}
                 <Row>
                     <TypeInputs elements={this.state.typeInputs} moveToCombiner={this.moveToCombinerFromTypes}/>
-                    <Combiner elements={this.state.combinerInputs} removeToTypes={this.removeFromCombinerToTypes} removeToProperties={this.removeFromCombinerToProperties} typeIsSelected={this.state.typeIsSelected}/>
+                    <Combiner elements={this.state.combinerInputs} removeToTypes={this.removeFromCombinerToTypes} removeToProperties={this.removeFromCombinerToProperties} typeIsSelected={this.state.typeIsSelected} setResults={this.setResults}/>
                     <PropertyInputs elements={this.state.propertyInputs} moveToCombiner={this.moveToCombinerFromProperties}/>
                 </Row>
                 <Results elements={this.state.results} />
