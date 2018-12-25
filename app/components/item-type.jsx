@@ -18,7 +18,7 @@ export default class ItemType extends Component {
                                 this.setState({selected: !this.state.selected});
                             }}}
                             action
-                            eventKey={this.props.eventKey}>
+                            >
                         {this.props.content}
                     </ListGroup.Item>
             </Fade>

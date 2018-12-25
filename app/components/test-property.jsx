@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
-import { Fade, ListGroup } from 'react-bootstrap'
+import { Fade, Button } from 'react-bootstrap'
 
-export default class ItemProperty extends Component {
+export default class TestProperty extends Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -12,13 +12,13 @@ export default class ItemProperty extends Component {
     render() {
         return (
             <Fade appear={true} in={this.state.selected}>
-                <ListGroup.Item 
+                <Button
                     onClick={() => {
-                        this.props.move(this.props.content)}}
-                    action
-                    >
+                        this.props.move(this.props.content);
+                        }}
+                    variant="outline-primary">
                     {this.props.content}
-                </ListGroup.Item>
+                </Button>
             </Fade>
         )
     }
