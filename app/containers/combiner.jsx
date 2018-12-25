@@ -13,14 +13,14 @@ export default class Combiner extends Component {
         }
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
-        this.setKey = this.setKey.bind(this);
+        this.resetKey = this.resetKey.bind(this);
     }
 
-    setKey(val) {
+    resetKey() {
         //Absolutely neccessary timeout, or else onSelect runs after setKey, causing state.key to become locked to an element no longer in the Tab Container
         setTimeout(() => {
             this.setState({
-                key: val
+                key: ''
             })
         }, 100)
     }
@@ -111,14 +111,15 @@ export default class Combiner extends Component {
     }
 
     render() {
+        const { elements } = this.props;
         return (
             <Col className='combiner'>
                 <h1> Combiner </h1>
-                {!!Object.keys(this.props.elements).length &&
-                <Tab.Container id="item-property-inputs" activeKey={this.state.key || this.props.elements[Object.keys(this.props.elements)[0]].id} onSelect={key => this.setState({ key })}>
+                {!!Object.keys(elements).length &&
+                <Tab.Container id="item-property-inputs" activeKey={this.state.key || elements[Object.keys(elements)[0]].id} onSelect={key => this.setState({ key })}>
                     <ListGroup>
-                        {Object.keys(this.props.elements).map(key => {
-                            const element = this.props.elements[key];
+                        {Object.keys(elements).map(key => {
+                            const element = elements[key];
                             if (element.content.includes('property')) {
                                 return <ItemProperty eventKey={element.id} key={element.id} API={element.API} content={element.content} move={this.props.removeToProperties} setKey={this.setKey}/>
                             }
