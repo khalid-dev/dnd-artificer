@@ -12,12 +12,15 @@ export default class ItemType extends Component {
     render() {
         return (
             <Fade appear={true} in={this.state.selected}>
-                <ListGroup.Item onClick={() => {
-                    if (this.props.move(this.props.content)) {
-                        this.setState({selected: !this.state.selected});
-                    }}}>
-                    {this.props.content}
-                </ListGroup.Item>
+                    <ListGroup.Item 
+                        onClick={() => {
+                            if (this.props.move(this.props.content)) {
+                                this.setState({selected: !this.state.selected});
+                            }}}
+                            action
+                            eventKey={this.props.eventKey}>
+                        {this.props.content}
+                    </ListGroup.Item>
             </Fade>
         )
     }
