@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import ItemType from '../components/item-type'
 import ItemProperty from '../components/item-property'
-import { Col, ListGroup, Form, Button, Fade } from 'react-bootstrap'
+import { Tab, Col, ListGroup, Form, Button, Fade } from 'react-bootstrap'
 import axios from 'axios'
 
 export default class Combiner extends Component {
@@ -9,9 +9,20 @@ export default class Combiner extends Component {
         super(props);
         this.state = {
             value: '',
+            key: '',
         }
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
+        this.setKey = this.setKey.bind(this);
+    }
+
+    setKey(val) {
+        //Absolutely neccessary timeout, or else onSelect runs after setKey, causing state.key to become locked to an element no longer in the Tab Container
+        setTimeout(() => {
+            this.setState({
+                key: val
+            })
+        }, 100)
     }
 
     getValidationState() {
@@ -103,17 +114,20 @@ export default class Combiner extends Component {
         return (
             <Col className='combiner'>
                 <h1> Combiner </h1>
-                <ListGroup>
-                    {Object.keys(this.props.elements).map(key => {
-                        const element = this.props.elements[key];
-                        if (element.content.includes('property')) {
-                            return <ItemProperty key={element.id} API={element.API} content={element.content} move={this.props.removeToProperties} setKey={() => {}}/>
-                        }
-                        else {
-                            return <ItemType key={element.id} API={element.API} content={element.content} move={this.props.removeToTypes}/>
-                        }
-                    })}
-                </ListGroup>
+                {!!Object.keys(this.props.elements).length &&
+                <Tab.Container id="item-property-inputs" activeKey={this.state.key || this.props.elements[Object.keys(this.props.elements)[0]].id} onSelect={key => this.setState({ key })}>
+                    <ListGroup>
+                        {Object.keys(this.props.elements).map(key => {
+                            const element = this.props.elements[key];
+                            if (element.content.includes('property')) {
+                                return <ItemProperty eventKey={element.id} key={element.id} API={element.API} content={element.content} move={this.props.removeToProperties} setKey={this.setKey}/>
+                            }
+                            else {
+                                return <ItemType eventKey={element.id} key={element.id} API={element.API} content={element.content} move={this.props.removeToTypes} setKey={this.setKey}/>
+                            }
+                        })}
+                    </ListGroup>
+                </Tab.Container>}
                 {this.props.typeIsSelected && 
                 <Fade in={true}>
                     <Form onSubmit={e => this.handleSubmit(e)}>

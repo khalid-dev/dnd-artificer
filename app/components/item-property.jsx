@@ -14,8 +14,8 @@ export default class ItemProperty extends Component {
             <Fade appear={true} in={this.state.selected}>
                 <ListGroup.Item 
                     onClick={() => {
-                        this.props.setKey(this.props.adjacentKey);
-                        this.props.move(this.props.content)}}
+                        this.props.move(this.props.content);
+                        this.props.resetKey();}}
                     action
                     eventKey={this.props.eventKey}
                     >
