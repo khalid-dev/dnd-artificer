@@ -16,3 +16,4 @@ A React/Express app designed to make generating magical items simple and visuall
 - [ ] Test on SR--see if app makes sense if using a screen reader only
 - [ ] Write tests for functions in components
 - [ ] Write tests for API Routes
+- [ ] Refactor Controlled Tab Components to HOCs
