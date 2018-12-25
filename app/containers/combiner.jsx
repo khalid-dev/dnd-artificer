@@ -69,21 +69,22 @@ export default class Combiner extends Component {
                 type = elements[key]
         })
         const typeAPI = this.generateAPIStringRandom(type.API, this.state.value);
-
+        
         const items = await axios.get(typeAPI);
         items.data.forEach(item => results.push(item));
 
         let typeStr;
-        if (type.id.includes('armor')) {
+        if (type.API.includes('armor')) {
             typeStr = 'armor'
         }
-        if (type.id.includes('weapon')) {
+        if (type.API.includes('weapon')) {
             typeStr = 'weapon'
         }
-        if (type.id.includes('trinket')) {
+        if (type.API.includes('trinket')) {
             typeStr = 'trinket'
         }
         const propertyAPIs = properties.map(property => this.generatePropertyAPIStringRandom(typeStr, property.API, this.state.value));
+        
         for (let i = 0; i < propertyAPIs.length; i ++) {
             const properties = await axios.get(propertyAPIs[i]);
             results.forEach((result, resultIx) => {
