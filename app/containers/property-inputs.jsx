@@ -11,6 +11,7 @@ export default class PropertyInputs extends Component {
         this.setKey = this.setKey.bind(this);
     }
     setKey(val) {
+        //Absolutely neccessary timeout, or else onSelect runs after setKey, causing state.key to become locked to an element no longer in the Tab Container
         setTimeout(() => {
             this.setState({
                 key: val
@@ -26,7 +27,7 @@ export default class PropertyInputs extends Component {
                     <ListGroup>
                         {Object.keys(elements).map((type, ix) => {
                             const property = elements[type];
-                            
+
                             let adjacentKey = '';
                             const prevEntry = elements[Object.keys(elements)[ix-1]];
                             const nextEntry = elements[Object.keys(elements)[ix+1]];
