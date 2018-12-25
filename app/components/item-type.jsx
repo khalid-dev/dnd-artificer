@@ -16,8 +16,8 @@ export default class ItemType extends Component {
                         onClick={() => {
                             if (this.props.move(this.props.content)) {
                                 this.setState({selected: !this.state.selected});
-                                this.props.resetKey();
-                            }}}
+                            }
+                            this.props.resetKey();}}
                             action
                             eventKey={this.props.eventKey}
                             >

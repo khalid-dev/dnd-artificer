@@ -121,10 +121,10 @@ export default class Combiner extends Component {
                         {Object.keys(elements).map(key => {
                             const element = elements[key];
                             if (element.content.includes('property')) {
-                                return <ItemProperty eventKey={element.id} key={element.id} API={element.API} content={element.content} move={this.props.removeToProperties} setKey={this.setKey}/>
+                                return <ItemProperty eventKey={element.id} key={element.id} API={element.API} content={element.content} move={this.props.removeToProperties} resetKey={this.resetKey}/>
                             }
                             else {
-                                return <ItemType eventKey={element.id} key={element.id} API={element.API} content={element.content} move={this.props.removeToTypes} setKey={this.setKey}/>
+                                return <ItemType eventKey={element.id} key={element.id} API={element.API} content={element.content} move={this.props.removeToTypes} resetKey={this.resetKey}/>
                             }
                         })}
                     </ListGroup>
