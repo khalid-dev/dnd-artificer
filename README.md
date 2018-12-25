@@ -12,7 +12,8 @@ A React/Express app designed to make generating magical items simple and visuall
    - [X] Combiner should be cleared, with elements going back to their appropriate containers
    - [X] Style it
 - [ ] Polish Components
-- [ ] Ensure App is usable with keyboard only
+- [X] Ensure App is usable with keyboard only
+- [ ] Polish keyboard experience
 - [ ] Test on SR--see if app makes sense if using a screen reader only
 - [ ] Write tests for functions in components
 - [ ] Write tests for API Routes
