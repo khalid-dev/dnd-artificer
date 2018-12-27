@@ -16,7 +16,7 @@ export default class TypeInputs extends Component {
             this.setState({
                 key: ''
             })
-        }, 100)
+        })
     }
 
     render() {
@@ -24,8 +24,8 @@ export default class TypeInputs extends Component {
         return (
             <Tab.Container id="item-type-inputs" activeKey={this.state.key || elements[Object.keys(elements)[0]].id} onSelect={key => this.setState({ key })}>
                 <Col>
-                    <h1> Item Types </h1>
-                    <ListGroup >
+                    <h2> Item Types </h2>
+                    <ListGroup aria-label="item-types">
                         {Object.keys(elements).map(type => {
                             const item = elements[type];
                             return <ItemType eventKey={item.id} key={item.id} API={item.API} content={item.content} move={moveToCombiner} resetKey={this.resetKey}/>

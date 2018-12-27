@@ -105,8 +105,8 @@ export default class Home extends Component {
                 {this.state.error && <DismissibleError message={this.state.error} resetError={this.resetError}/>}
                 <Row>
                     <TypeInputs elements={this.state.typeInputs} moveToCombiner={this.moveToCombinerFromTypes}/>
-                    <Combiner elements={this.state.combinerInputs} removeToTypes={this.removeFromCombinerToTypes} removeToProperties={this.removeFromCombinerToProperties} typeIsSelected={this.state.typeIsSelected} setResults={this.setResults}/>
                     <PropertyInputs elements={this.state.propertyInputs} moveToCombiner={this.moveToCombinerFromProperties}/>
+                    <Combiner elements={this.state.combinerInputs} removeToTypes={this.removeFromCombinerToTypes} removeToProperties={this.removeFromCombinerToProperties} typeIsSelected={this.state.typeIsSelected} setResults={this.setResults}/>
                 </Row>
                 <Results elements={this.state.results} />
             </Container>

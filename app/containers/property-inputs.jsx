@@ -16,19 +16,18 @@ export default class PropertyInputs extends Component {
             this.setState({
                 key: ''
             })
-        }, 100)
+        })
     }
     render() {
         const { elements, moveToCombiner } = this.props;
         return (
             <Col className="item-property-inputs">
-                <h1> Item Properties </h1>
+                <h2>Property Inputs</h2>
                 {!!Object.keys(elements).length && 
                 <Tab.Container id="item-property-inputs" activeKey={this.state.key || elements[Object.keys(elements)[0]].id} onSelect={key => this.setState({ key })}>
-                        <ListGroup>
+                        <ListGroup aria-label="item-properties">
                             {Object.keys(elements).map((type, ix) => {
                                 const property = elements[type];
-
                                 return <ItemProperty eventKey={property.id} key={property.id} API={property.API} content={property.content} move={moveToCombiner} resetKey={this.resetKey}/>
                             })}
                         </ListGroup>
