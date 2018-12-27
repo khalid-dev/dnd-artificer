@@ -38,9 +38,9 @@ export default class Results extends Component {
     generateRow(num, obj) {
         const flattenedObj = this.flattenObj(obj);
         return (
-            <tr>
-                <td>{num}</td>
-                {Object.keys(flattenedObj).map(key => <td>{flattenedObj[key]}</td>)}
+            <tr row="row">
+                <th scope="row" role="rowheader">{num}</th>
+                {Object.keys(flattenedObj).map(key => <td role="cell">{flattenedObj[key]}</td>)}
             </tr>
         )
     }
@@ -49,12 +49,13 @@ export default class Results extends Component {
         const { elements } = this.props;
         return (
             <div className='results'>
-                <h1>Results:</h1>
+                <h2>Generated Items:</h2>
                 {elements[0] && 
-                <Table striped bordered hover>
+                <Table striped bordered hover role="table" aria-label="results-table">
+                    <caption>Generated Items</caption>
                     <thead>
-                        <tr>
-                            {this.generateHeaders(elements[0]).map(header => <th>{header}</th>)}
+                        <tr role="row">
+                            {this.generateHeaders(elements[0]).map(header => <th scope="col">{header}</th>)}
                         </tr>
                     </thead>
                     <tbody>
