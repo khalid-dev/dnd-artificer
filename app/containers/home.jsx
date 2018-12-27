@@ -16,13 +16,15 @@ export default class Home extends Component {
             combinerInputs: {},
             results: [],
             typeIsSelected: false,
-            error: ''
+            typeError: '',
+            submissionMessage: '',
         }
         this.moveToCombinerFromTypes = this.moveToCombinerFromTypes.bind(this);
         this.moveToCombinerFromProperties = this.moveToCombinerFromProperties.bind(this);
         this.removeFromCombinerToTypes = this.removeFromCombinerToTypes.bind(this);
         this.removeFromCombinerToProperties = this.removeFromCombinerToProperties.bind(this);
         this.resetError = this.resetError.bind(this);
+        this.setSubmissionMessage = this.setSubmissionMessage.bind(this);
         this.setResults = this.setResults.bind(this);
     }
 
@@ -43,8 +45,8 @@ export default class Home extends Component {
         }
         else {
             this.setState({
-                error: 'Only one Item Type in the Combiner, please!'
-            })
+                typeError: 'Only one Item Type in the Combiner, please!'
+            });
         }
     }
 
@@ -91,6 +93,12 @@ export default class Home extends Component {
         })
     }
 
+    setSubmissionMessage(message) {
+        this.setState({
+            submissionMessage: message
+        })
+    }
+
     setResults(results) {
         this.setState({
             results
@@ -98,17 +106,22 @@ export default class Home extends Component {
     }
 
     render() {
+        const { typeError, submissionMessage, typeInputs, propertyInputs, combinerInputs, typeIsSelected } = this.state;
         return (
             <Container className="home">
                 <h1>Welcome to Artificer!</h1>
-                {this.state.error && 
-                <Alert show={!!this.state.error} variant="primary" dismissible={true} onClose={() => this.resetError()}>
-                    <Alert.Heading>{this.state.error}</Alert.Heading>
+                {typeError && 
+                <Alert show={!!typeError} variant="primary" dismissible={true} onClose={() => this.resetError()}>
+                    <Alert.Heading>{typeError}</Alert.Heading>
+                </Alert>}
+                {submissionMessage &&
+                <Alert show={!!submissionMessage} variant="success" dismissible={true} onClose={() => this.setSubmissionMessage('')}>
+                    <Alert.Heading>{submissionMessage}</Alert.Heading>
                 </Alert>}
                 <Row>
-                    <TypeInputs elements={this.state.typeInputs} moveToCombiner={this.moveToCombinerFromTypes}/>
-                    <PropertyInputs elements={this.state.propertyInputs} moveToCombiner={this.moveToCombinerFromProperties}/>
-                    <Combiner elements={this.state.combinerInputs} removeToTypes={this.removeFromCombinerToTypes} removeToProperties={this.removeFromCombinerToProperties} typeIsSelected={this.state.typeIsSelected} setResults={this.setResults}/>
+                    <TypeInputs elements={typeInputs} moveToCombiner={this.moveToCombinerFromTypes}/>
+                    <PropertyInputs elements={propertyInputs} moveToCombiner={this.moveToCombinerFromProperties}/>
+                    <Combiner elements={combinerInputs} removeToTypes={this.removeFromCombinerToTypes} removeToProperties={this.removeFromCombinerToProperties} typeIsSelected={typeIsSelected} setResults={this.setResults} setSubmissionMessage={this.setSubmissionMessage}/>
                 </Row>
                 <Results elements={this.state.results} />
             </Container>

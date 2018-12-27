@@ -52,7 +52,7 @@ export default class CombinerForm extends Component {
     async handleSubmit(evt) {
         evt.preventDefault();
         const results = [];
-        const { setResults, elements } = this.props;
+        const { setResults, elements, setSubmissionMessage } = this.props;
         const keys = Object.keys(elements);
         let type;
         let properties = [];
@@ -86,12 +86,13 @@ export default class CombinerForm extends Component {
                 result[`property-${i+1}`] = properties.data[resultIx]
             });
         }
-
-        setResults(results);
-        this.resetElements();
+        
         this.setState({
             value: ''
         })
+        setResults(results);
+        this.resetElements();
+        setSubmissionMessage('Items Generated!')
     }
     render() {
         return (

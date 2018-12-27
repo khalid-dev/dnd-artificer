@@ -24,7 +24,7 @@ export default class Combiner extends Component {
 
     render() {
         console.log('rerendered')
-        const { elements, removeToProperties, removeToTypes, setResults} = this.props;
+        const { elements, removeToProperties, removeToTypes, setResults, setSubmissionMessage} = this.props;
         return (
             <Col className='combiner'>
                 <h2>Combiner</h2>
@@ -43,7 +43,7 @@ export default class Combiner extends Component {
                     </ListGroup>
                 </Tab.Container>}
                 {this.props.typeIsSelected && 
-                <CombinerForm elements={elements} removeToProperties={removeToProperties} removeToTypes={removeToTypes} setResults={setResults}/>}
+                <CombinerForm elements={elements} removeToProperties={removeToProperties} removeToTypes={removeToTypes} setResults={setResults} setSubmissionMessage={setSubmissionMessage}/>}
             </Col>
         )
     }
