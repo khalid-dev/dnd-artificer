@@ -15,6 +15,7 @@ A React/Express app designed to make generating magical items simple and visuall
 - [X] Ensure App is usable with keyboard only
 - [X] Polish keyboard experience
 - [X] Test on SR--see if app makes sense if using a screen reader only
+- [ ] Final check on WCAG2.0 checklist
 - [ ] Write tests for functions in components
 - [ ] Write tests for API Routes
 - [ ] Refactor Controlled Tab Components to HOCs
