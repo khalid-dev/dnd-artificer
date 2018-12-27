@@ -3,10 +3,9 @@ import Results from './results'
 import Combiner from './combiner'
 import TypeInputs from './type-inputs'
 import PropertyInputs from './property-inputs'
-import DismissibleError from '../components/dismissible-error'
 import itemTypes from '../constants/item-types'
 import itemProperties from '../constants/item-properties'
-import { Container, Row } from 'react-bootstrap'
+import { Alert, Container, Row } from 'react-bootstrap'
 
 export default class Home extends Component {
     constructor(props) {
@@ -102,7 +101,10 @@ export default class Home extends Component {
         return (
             <Container className="home">
                 <h1>Welcome to Artificer!</h1>
-                {this.state.error && <DismissibleError message={this.state.error} resetError={this.resetError}/>}
+                {this.state.error && 
+                <Alert show={!!this.state.error} variant="primary" dismissible={true} onClose={() => this.resetError()}>
+                    <Alert.Heading>{this.state.error}</Alert.Heading>
+                </Alert>}
                 <Row>
                     <TypeInputs elements={this.state.typeInputs} moveToCombiner={this.moveToCombinerFromTypes}/>
                     <PropertyInputs elements={this.state.propertyInputs} moveToCombiner={this.moveToCombinerFromProperties}/>
