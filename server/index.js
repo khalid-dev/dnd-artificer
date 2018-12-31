@@ -1,4 +1,5 @@
 const express = require('express')
+const serverless = require('serverless-http')
 const path = require('path')
 const volleyball = require('volleyball')
 
@@ -26,3 +27,4 @@ app.use((err, req, res, next) => {
 })
 
 module.exports = app
+module.exports.handler = serverless(app)
